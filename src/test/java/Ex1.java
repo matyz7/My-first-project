@@ -58,7 +58,7 @@ public class Ex1 {
         submitButton.click();
         WebElement logoMainPage = driver.findElement(By.xpath("//div[@class='app_logo']"));
         WebElement sortButton = driver.findElement(By.xpath("//select[@class='product_sort_container']"));
-        Assertions.assertTrue(logoMainPage.isDisplayed());
+        Assertions.assertTrue((logoMainPage.isDisplayed()));
         Assertions.assertTrue(sortButton.isDisplayed());
     }
 
@@ -77,17 +77,17 @@ public class Ex1 {
         menuButton.click();
         WebElement aboutButton = driver.findElement(By.xpath("//a[@id='about_sidebar_link']"));
         aboutButton.click();
-        WebElement conctactButton = driver.findElement(By.xpath("(//div[@data-hover-content='Contact']//a)[2]"));
-        builder.moveToElement(conctactButton);
-        WebElement conctactSupportButton = driver.findElement(By.xpath("(//span[text()='Contact Sales'])[2]"));
-        builder.click(conctactSupportButton);
+        WebElement contactButton = driver.findElement(By.xpath("(//div[@data-hover-content='Contact']//a)[2]"));
+        builder.moveToElement(contactButton);
+        WebElement contactSupportButton = driver.findElement(By.xpath("(//span[text()='Contact Sales'])[2]"));
+        builder.click(contactSupportButton);
         builder.perform();
+        Assertions.assertTrue(driver.findElement(By.xpath("//h4[@class='title is-hidden-thankyou']")).isDisplayed());
 
     }
 
     @Test
     public void moveToMainPage() {
-        Actions builder = new Actions(driver);
         WebElement loginInput = driver.findElement(By.xpath("//input[@id='user-name']"));
         WebElement password = driver.findElement(By.xpath("//input[@type='password']"));
         WebElement submitButton = driver.findElement(By.xpath("//input[@id='login-button']"));
